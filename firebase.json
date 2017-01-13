@@ -1,0 +1,33 @@
+{
+  "hosting": {
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "headers": [
+      {
+        "source": "**/*",
+        "headers": [
+          {"key": "X-Content-Type-Options", "value": "nosniff"},
+          {"key": "X-Frame-Options", "value": "DENY"},
+          {"key": "X-UA-Compatible", "value": "ie=edge"},
+          {"key": "X-XSS-Protection", "value": "1; mode=block"}
+        ]
+      },
+      {
+        "source": "**/*.@(css|html|js|map|json)",
+        "headers": [
+          {"key": "Cache-Control", "value": "max-age=7200"}
+        ]
+      }
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
