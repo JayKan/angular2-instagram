@@ -23,8 +23,7 @@
       "node",
       "jquery",
       "slick-carousel",
-      "hammerjs",
-      "effects"
+      "hammerjs"
     ]
   },
   "exclude": [
