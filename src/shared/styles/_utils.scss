@@ -1,0 +1,64 @@
+$colors: (
+  base: (
+    'border-color': #35373a,
+    'header-bg-start': #2a3139,
+    'header-bg-end': #292d34,
+    'header-gradient-start': #11C966,
+    'header-gradient-mid': #c4f53b,
+    'header-gradient-end': rgba(255, 125, 202, 0.87),
+    'header-text-color': #c4ccdf,
+    'sidebar-border-color': #20252b,
+    'sidebar-bg-start': #191d23,
+    'sidebar-bg-end': #202329,
+    'slider-label-color': #7e8792,
+    'slider-value-bg-color': #0f1010,
+    'range-path-color': #434751,
+    'range-handle-color': #9c5ad8,
+    'tab-bg-color': #0f1010,
+    'tab-bg-color-active': transparent,
+    'tab-label-color': #5e6873,
+    'tab-label-color-active': #c4ccdf,
+    'link-color': #15b0ed,
+    'main-bg': #1c1e22,
+    'dropzone-border': #444,
+    'cite-color': #979ead
+  ),
+  social: (
+    twitter: #55acee,
+    facebook: #455fa2,
+  )
+);
+
+@function sk-color($palette, $tone: 'default', $colors:$colors) {
+
+  $group: null;
+
+  @if type-of($colors) != map { // Check if colors map exists and is valid
+    @error "The passed param $colors is not a map.";
+  }
+
+  @if ( map-has-key($colors, $palette) ) { // Check if the specified pallete exists
+    $group: map-get($colors, $palette);
+  } @else {
+    @error "No pallete by the name of '#{$palette}' in $colors map"
+  }
+
+  @if ( map-has-key($group, $tone) ) { // Check id the specified tone exists
+    @return map-get($group, $tone);
+  } @else {
+    @error "No color by the name of '#{$tone}' in the '#{$palette}' palette"
+  }
+}
+
+@function c($palette, $tone: 'default') {
+  @return sk-color($palette, $tone)
+}
+
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content:"";
+    display:table;
+    clear:both;
+  }
+}
