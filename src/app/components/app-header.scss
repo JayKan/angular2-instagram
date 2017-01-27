@@ -1,0 +1,45 @@
+@import '../../shared/styles/utils';
+
+app-header {
+  position: relative;
+  display: block;
+
+  .header {
+    background: linear-gradient(to bottom, #3b3e42, #090a0a);
+    height: 60px;
+    box-shadow: 0 3px 0 0 rgba(0,0,0,0.1);
+    border-bottom: 1.5px solid #313438;
+
+    .container {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    &-gradient {
+      background: linear-gradient(to left, c('base', 'header-gradient-start') 20%, c('base', 'header-gradient-mid'), c('base', 'header-gradient-end') 90%);
+      display: block;
+      height: 5px;
+      width: 100%;
+    }
+
+    &__logo {
+      color: c('base', 'header-text-color');
+      float: left;
+      margin-top: 15px;
+    }
+
+    &__share-btns {
+      float: right;
+      margin-top: 15px;
+    }
+
+    .header-github {
+      color: c('base', 'header-text-color');
+      float: right;
+      font-size: 28px;
+      margin-left: 10px;
+      margin-top: 13px;
+    }
+  }
+
+}
