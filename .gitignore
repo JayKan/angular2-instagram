@@ -5,9 +5,6 @@
 public/
 build/
 tmp/
-typings/
-/src/**/*.css
-
 
 
 #---------------------------------
@@ -34,4 +31,3 @@ typings/
 __MACOSX/
 .DS_Store
 Thumbs.db
-/package.json
