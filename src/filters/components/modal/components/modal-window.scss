@@ -20,27 +20,23 @@
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
-    background-color: #fff;
+    background-color: #191d23;
     -webkit-background-clip: padding-box;
     background-clip: padding-box;
     border: 1px solid rgba(0, 0, 0, 0.2);
     outline: 0;
 
     .modal-header {
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
       display: flex;
-      -webkit-box-align: center;
-      -webkit-align-items: center;
-      -ms-flex-align: center;
       align-items: center;
-      -webkit-box-pack: justify;
-      -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
       justify-content: space-between;
       padding: 15px;
-      border-bottom: 1px solid #eceeef;
+      background: linear-gradient(180deg, #2a3139, #292d34);
+
+      .modal-title {
+        color: #c4ccdf;
+        font-weight: 300;
+      }
 
       button.close {
         padding: 0;
@@ -48,16 +44,52 @@
         background: transparent;
         border: 0;
         -webkit-appearance: none;
+        outline: none;
+
+        span {
+          font-size: 18px;
+          font-weight: 100;
+          color: #c4ccdf;
+        }
       }
     }
 
     .modal-body {
       position: relative;
-      -webkit-box-flex: 1;
-      -webkit-flex: 1 1 auto;
-      -ms-flex: 1 1 auto;
-      flex: 1 1 auto;
-      padding: 15px;
+      display: flex;
+      flex-flow: row wrap;
+      padding: 10px;
+      justify-content: center;
+      align-items: center;
+      min-height: 400px;
+
+      article.image-thumb {
+        flex: auto;
+        width: 120px;
+        height: 90px;
+        margin: .5vw;
+
+        &:hover {
+          transform: scale(1.06, 1.06);
+          opacity: 1;
+          border: 2px solid #15b0ed;
+          transition: 0.2s ease;
+        }
+
+        img.modal-image {
+          width: 100%;
+          height: 100%;
+          overflow: visible;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+
+      section {
+        color: #c4ccdf;
+      }
     }
 
     .modal-footer {
@@ -73,7 +105,7 @@
       -webkit-justify-content: flex-end;
       -ms-flex-pack: end;
       justify-content: flex-end;
-      padding: 15px;
+      padding: 10px;
       border-top: 1px solid #eceeef;
 
       .btn-secondary {
@@ -98,7 +130,7 @@
 
 @media (min-width: 576px) {
   .modal-dialog {
-    max-width: 500px;
-    margin: 12vh auto;
+    max-width: 545px;
+    margin: 6vh auto;
   }
 }

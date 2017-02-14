@@ -17,7 +17,7 @@ import { ModalWindowComponent } from '../components/modal-window';
 import { ModalStack } from '../services/modal-stack';
 import { ActiveModal, ModalRef } from '../services/modal-ref';
 
-@Directive({ selector: 'template[ModalContainer]' })
+@Directive({ selector: 'template[ModalContainer], div[ModalContainer]' })
 export class ModalContainer {
   private _backdropFactory: ComponentFactory<ModalBackdropComponent>;
   private _windowFactory: ComponentFactory<ModalWindowComponent>;
