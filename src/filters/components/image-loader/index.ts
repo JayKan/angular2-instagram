@@ -1,0 +1,1 @@
+export { ImageLoaderComponent } from './image-loader';
