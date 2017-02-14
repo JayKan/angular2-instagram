@@ -1,0 +1,1 @@
+export { MdRippleDirective } from './ripple';
