@@ -1,0 +1,20 @@
+photo {
+  figure {
+    margin: 0;
+    padding:0;
+  }
+  .photo {
+    max-height: 85%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    min-width: 560px;
+  }
+
+  @media screen and (min-width: 1px) and (max-width: 625px) {
+    .photo {
+      min-width: 95%;
+    }
+  }
+}
