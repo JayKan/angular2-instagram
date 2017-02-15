@@ -17,6 +17,4 @@ import './app-header.scss';
   </header>
   `
 })
-export class AppHeaderComponent {
-
-}
+export class AppHeaderComponent {}

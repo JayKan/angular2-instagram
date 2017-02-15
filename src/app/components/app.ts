@@ -9,6 +9,4 @@ import './app.scss';
   <router-outlet></router-outlet> 
   `
 })
-export class AppComponent {
-
-}
+export class AppComponent {}
