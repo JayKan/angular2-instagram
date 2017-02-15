@@ -1,10 +1,11 @@
-import { platformBrowser } from '@angular/platform-browser';
+import { platformBrowser, disableDebugTools } from '@angular/platform-browser';
 import { enableProdMode } from '@angular/core';
 
 import { AppModuleNgFactory } from 'build/src/app/index.ngfactory';
 
 // enable prod for faster renders
 if (process.env.NODE_ENV === 'production') {
+  disableDebugTools();
   enableProdMode();
 }
 
@@ -12,7 +13,7 @@ if (process.env.NODE_ENV === 'production') {
 import './shared/styles/styles.scss';
 
 export function main() {
-  return platformBrowser()
+  platformBrowser()
     .bootstrapModuleFactory(AppModuleNgFactory)
     .catch(err => console.error(err));
 }
