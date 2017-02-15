@@ -1,0 +1,1 @@
+export { coerceBooleanProperty } from './boolean-property';
