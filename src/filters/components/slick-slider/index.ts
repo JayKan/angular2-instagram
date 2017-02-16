@@ -1,0 +1,1 @@
+export { SlickSliderComponent } from './slick-slider';
