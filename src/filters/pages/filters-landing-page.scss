@@ -1,0 +1,206 @@
+@import '../../shared/styles/utils';
+
+filters-landing-page {
+  .main {
+
+    display: flex;
+    height: calc(100% - 70px);
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+
+    .gallery-section {
+      display: flex;
+      flex-direction: column;
+      background-color: white;
+      flex: 1 1 225%;
+
+      .main-photo {
+        background: #1c1e22;
+        overflow: hidden;
+        padding: 20px;
+        position: relative;
+        flex-grow: 1;
+
+        .modal-trigger-cont {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          .modal-trigger {
+            color: #15b0ed;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 13px;
+            padding-left: 0;
+            float: left;
+            position: relative;
+          }
+
+          .gallery-trigger {
+            color: #15b0ed;
+            cursor: pointer;
+            float: right;
+            font-size: 13px;
+          }
+        }
+
+        .credits {
+          left: 50%;
+          transform: translate(-50%);
+          bottom: 0;
+          position: absolute;
+
+          .credits-cite {
+            font-family: 'Shadows Into Light', cursive;
+            font-size: 11px;
+            font-weight: 600;
+            margin: 0;
+            line-height: 20px;
+            color: #979ead;
+            a {
+              color: #15b0ed;
+              font-family: 'Shadows Into Light', cursive;
+              font-size: 13px;
+              font-weight: 600;
+              &:hover {
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .filters-section {
+      border-left: solid 1px c('base', 'sidebar-border-color');
+      overflow: hidden;
+      padding: 10px;
+      background: linear-gradient(90deg, c('base', 'sidebar-bg-start'), c('base', 'sidebar-bg-end'));
+
+      .header {
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        margin-top: 15px;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        color: #c4ccdf;
+        padding: 0 18px;
+        font-family: 'Shadows Into Light', cursive;
+
+        &.overlay {
+          margin-top: 0;
+          padding-left: 8px;
+        }
+      }
+
+      .filters-header-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .clear-all {
+          font-family: 'Shadows Into Light', cursive;
+          font-size: 11px;
+          font-weight: 600;
+          margin-top: 18px;
+          margin-bottom: 10px;
+          text-transform: uppercase;
+          color: #15b0ed;
+          padding: 0 18px;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+
+      .filters {
+        padding: 0 10px;
+      }
+
+      .slider-label {
+        color: #7e8792;
+        font-size: 13px;
+        padding: 0 8px;
+        float: left;
+      }
+
+      .slider-value {
+        background-color: #0f1010;
+        float: right;
+        padding: 3px 6px;
+        color: #7e8792;
+        font-size: 10px;
+        margin-right: 8px;
+        letter-spacing: 1px;
+      }
+    }
+
+    .nano {
+      position : relative;
+      width    : 100%;
+      height   : 100%;
+      overflow : hidden;
+
+      &.has-scrollbar {
+        > .nano-content {
+           &::-webkit-scrollbar {
+             display: block;
+          }
+        }
+      }
+
+      &:hover {
+        > .nano-pane, .nano-pane.active, .nano-pane.flashed {
+          visibility : visible;
+          opacity    : 0.99;
+        }
+      }
+
+      > .nano-content {
+        position      : absolute;
+        overflow      : scroll;
+        overflow-x    : hidden;
+        top           : 0;
+        right         : 0;
+        bottom        : 0;
+        left          : 0;
+
+        &:focus {
+          outline: thin dotted;
+        }
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
+
+      > .nano-pane {
+        background : rgba(0,0,0,.25);
+        position   : absolute;
+        width      : 10px;
+        right      : 0;
+        top        : 0;
+        bottom     : 0;
+        visibility : hidden;
+        opacity    : .01;
+        -webkit-transition    : .2s;
+        -moz-transition       : .2s;
+        -o-transition         : .2s;
+        transition            : .2s;
+        -moz-border-radius    : 5px;
+        -webkit-border-radius : 5px;
+        border-radius         : 5px;
+
+        > .nano-slider {
+          background: rgba(0,0,0,.9);
+          position              : relative;
+          margin                : 0 1px;
+          -moz-border-radius    : 3px;
+          -webkit-border-radius : 3px;
+          border-radius         : 3px;
+        }
+      }
+    }
+  }
+}
