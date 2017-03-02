@@ -1,7 +1,6 @@
 # Angular2 Instagram
 
 [![Angular 2 Style Guide][angular2-style-guide-badge]][style-guide]
-[![Build Status][build-status-badge]][build-status]
 [![Dependency Status][dependency-badge]][dependency]
 [![devDependency Status][devDependency-badge]][devDependency]
 [![PRs Welcome][prs-badge]][prs]
