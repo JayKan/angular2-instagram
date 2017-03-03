@@ -63,7 +63,7 @@
     "css-loader": "~0.26.2",
     "d3": "^4.3.0",
     "del-cli": "^0.2.0",
-    "extract-text-webpack-plugin": "2.0.0-beta.4",
+    "extract-text-webpack-plugin": "^2.0.0",
     "hammerjs": "^2.0.8",
     "html-webpack-plugin": "^2.24.0",
     "ie-shim": "^0.1.0",
@@ -93,8 +93,8 @@
     "ts-loader": "~2.0.1",
     "tslint": "~4.5.0",
     "typescript": "~2.2.1",
-    "webpack": "2.1.0-beta.25",
-    "webpack-dev-server": "2.1.0-beta.5",
+    "webpack": "^2.2.0",
+    "webpack-dev-server": "^2.2.0",
     "webpack-md5-hash": "~0.0.5",
     "zone.js": "~0.7.7"
   }
