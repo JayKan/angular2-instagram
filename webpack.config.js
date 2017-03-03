@@ -6,7 +6,7 @@ const autoprefixer = require('autoprefixer');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
 const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
-const NoErrorsPlugin = require('webpack/lib/NoErrorsPlugin');
+const NoEmitOnErrorsPlugin = require('webpack/lib/NoEmitOnErrorsPlugin');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
 const NamedModulesPlugin = require('webpack/lib/NamedModulesPlugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -37,11 +37,11 @@ const rules = {
   },
   scss: {
     test: /\.scss$/,
-    loader: ExtractTextPlugin.extract('css?-autoprefixer!postcss!sass')
+    loader: ExtractTextPlugin.extract('css-loader?-autoprefixer!postcss-loader!sass-loader')
   },
   typescript: {
     test: /\.ts$/,
-    loader: 'ts',
+    loader: 'ts-loader',
     exclude: [/\.(spec|e2e)\.ts$/]
   }
 };
@@ -166,7 +166,10 @@ if (ENV_PRODUCTION) {
   config.output.filename = '[name].[chunkhash].js';
 
   config.plugins.push(
-    new NoErrorsPlugin(),
+    new CopyWebpackPlugin([
+      { from: 'src/favicon.ico', to: '' }
+    ]),
+    new NoEmitOnErrorsPlugin(),
     new WebpackMd5Hash(),
     new UglifyJsPlugin({
       comments: false,
@@ -192,7 +195,7 @@ if (ENV_TEST) {
   config.module.rules = [
     {
       test: /\.ts$/,
-      loader: 'ts'
+      loader: 'ts-loader'
     },
     rules.html
   ];
