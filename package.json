@@ -86,7 +86,7 @@
     "postcss-loader": "^1.0.0",
     "raw-loader": "^0.5.1",
     "rxjs": "~5.2.0",
-    "sass-loader": "^4.0.2",
+    "sass-loader": "^6.0.2",
     "slick-carousel": "^1.6.0",
     "style-loader": "^0.13.1",
     "ts-helpers": "~1.1.2",
