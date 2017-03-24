@@ -172,7 +172,7 @@ export class FiltersService {
     );
   }
 
-  changePreset(value: { figureStyle: any, overlayStyle: any }): void {
+  changePreset(value: { figureStyle: any, overlayStyle: any, key: string }): void {
     this.store$.dispatch(
       this.actions.changePreset(value)
     );

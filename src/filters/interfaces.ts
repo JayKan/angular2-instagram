@@ -19,6 +19,7 @@ export interface OverlayStyle {
 }
 
 export interface GalleryModel {
+  key: string;
   figureStyle: FilterStyle;
   overlayStyle: OverlayStyle;
   image: string;

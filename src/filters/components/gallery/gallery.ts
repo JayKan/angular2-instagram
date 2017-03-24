@@ -16,7 +16,7 @@ import './gallery.scss';
           <li class="gallery-item" *ngFor="let record of gallery; let idx = index;">
             <div class="thumb" 
               [ngClass]="{'selected': idx === selected }" 
-              (click)="select(record.figureStyle, record.overlayStyle, idx)">
+              (click)="select(record.figureStyle, record.overlayStyle, idx, record.key)">
               <figure class="thumb__figure" [ngStyle]="record.figureStyle">
                 <div [ngStyle]="record.overlayStyle"></div>
                 <img class="thumb__img" [src]="record.image" >
@@ -56,12 +56,12 @@ export class GalleryComponent implements OnChanges {
     }
   }
 
-  select(figure: FilterStyle, overlay: OverlayStyle, id: number): void {
+  select(figure: FilterStyle, overlay: OverlayStyle, id: number, key: string): void {
     if (this.selected !== id) {
       this.selected = id;
       const figureStyle = fromJS(figure);
       const overlayStyle = fromJS(overlay);
-      this.onSelect.emit({ figureStyle, overlayStyle });
+      this.onSelect.emit({ figureStyle, overlayStyle, key });
     }
   }
 
@@ -71,6 +71,7 @@ export class GalleryComponent implements OnChanges {
       const name = key.replace(/^./, key[0].toUpperCase());
       const object = presets[key];
       data.push({
+        key: key,
         labelName: name,
         image: src,
         figureStyle: this.getGalleryFigureStyle(object.filter),

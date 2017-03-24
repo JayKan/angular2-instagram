@@ -1,7 +1,8 @@
 import { Action } from '@ngrx/store';
 import { Map, List } from 'immutable';
 import { FiltersActions } from '../services/filters-actions';
-import { FilterStyle, OverlayStyle } from 'src/filters';
+import { FilterStyle, OverlayStyle, presets } from 'src/filters';
+
 
 export type FiltersState = Map<string, any>;
 const defaultImage: string = 'https://source.unsplash.com/W_9mOGUwR08/800x600';
@@ -71,8 +72,20 @@ export function filtersReducer(state: FiltersState = initialState, { type, paylo
 
     case FiltersActions.CHANGE_PRESET:
       return state.withMutations(filtersState => {
-        const { figureStyle, overlayStyle } = payload;
+        const { figureStyle, overlayStyle, key } = payload;
+        const preset = presets[key];
+        const { filter, overlay } = preset;
         filtersState
+          .merge({ 'contrast'   : filter.get('contrast')    || 100    })
+          .merge({ 'brightness' : filter.get('brightness')  || 100    })
+          .merge({ 'saturate'   : filter.get('saturate')    || 100    })
+          .merge({ 'sepia'      : filter.get('saturate')    || 0      })
+          .merge({ 'grayScale'  : filter.get('grayscale')   || 0      })
+          .merge({ 'invert'     : filter.get('invert')      || 0      })
+          .merge({ 'hueRotate'  : filter.get('hueRotate')   || 0      })
+          .merge({ 'blur'       : filter.get('blur')        || 0      })
+          .merge({ 'blend'      : filter.get('blend')       || 'none' })
+          .merge({ 'opacity'    : filter.get('opacity')     || 50     })
           .set('styles', figureStyle)
           .set('overlay', overlayStyle);
       });

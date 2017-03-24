@@ -158,7 +158,7 @@ import './filters-landing-page.scss';
             [value]="filters.blur$ | async"
             (valueChange)="change($event)">          
           </md-slider>
-          
+
           <div>
             <section>
               <p class="header overlay">Overlay:</p>           
@@ -210,11 +210,12 @@ export class FiltersLandingPageComponent {
     this.filters.loadAllImages();
   }
 
-  select({ figureStyle, overlayStyle }: { figureStyle: any, overlayStyle: any }): void {
+  select({ figureStyle, overlayStyle, key }: { figureStyle: any, overlayStyle: any, key: string }): void {
     this.filters.change({
       value: {
         figureStyle: figureStyle,
-        overlayStyle: overlayStyle
+        overlayStyle: overlayStyle,
+        key: key
       },
       type: FiltersService.PRESET
     });
