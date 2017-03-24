@@ -19,6 +19,7 @@ import './filters-landing-page.scss';
       <gallery 
        [image]="filters.selectedImage$ | async"
        [active]="!isActive"
+       [customFilters]="customFilters"
        (onSelect)="select($event)">      
       </gallery>
          
@@ -202,6 +203,7 @@ import './filters-landing-page.scss';
 export class FiltersLandingPageComponent {
   options: Object[] = overlayOptions || [];
   isActive: boolean;
+  customFilters: boolean = true;
 
   constructor(
     public filters: FiltersService,
@@ -211,6 +213,7 @@ export class FiltersLandingPageComponent {
   }
 
   select({ figureStyle, overlayStyle, key }: { figureStyle: any, overlayStyle: any, key: string }): void {
+    this.customFilters = false;
     this.filters.change({
       value: {
         figureStyle: figureStyle,
@@ -222,6 +225,7 @@ export class FiltersLandingPageComponent {
   }
 
   change({ value, type }: { value: number, type: string }): void {
+    this.customFilters = true;
     this.filters.change({ value, type });
   }
 

@@ -50,7 +50,7 @@ export const MD_SLIDER_VALUE_ACCESSOR: any = {
   template:`
   <div class="md-slider-wrapper">
     <div class="md-slider-container"
-       [class.md-slider-sliding]="isSliding"
+       [class.md-slider-sliding]="isSliding && isActive"
        [class.md-slider-active]="isActive"
        [class.md-slider-thumb-label-showing]="thumbLabel">
       <div class="md-slider-track-container">
