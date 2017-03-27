@@ -110,12 +110,13 @@ export class FiltersActions {
     };
   }
 
-  changePreset({ figureStyle, overlayStyle }: { figureStyle: any, overlayStyle: any }): Action {
+  changePreset({ figureStyle, overlayStyle, key }: { figureStyle: any, overlayStyle: any, key: string }): Action {
     return {
       type: FiltersActions.CHANGE_PRESET,
       payload: {
         figureStyle,
-        overlayStyle
+        overlayStyle,
+        key
       }
     };
   }

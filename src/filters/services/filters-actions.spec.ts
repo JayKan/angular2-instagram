@@ -127,7 +127,7 @@ describe('filters', () => {
 
     describe('changePreset()', () => {
       it('should create an action', () => {
-        const value = { figureStyle: {}, overlayStyle: {} };
+        const value = { figureStyle: {}, overlayStyle: {}, key: '' };
         const action = actions.changePreset(value);
 
         expect(action).toEqual({
