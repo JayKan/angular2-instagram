@@ -24,6 +24,11 @@ Once you have installed all prerequisites,
 * `npm install` to install all dependencies
 * `npm start` to run our app locally in dev mode
 
+### Contributors
+
+A million thanks to some awesome people :)
+* [Yari Lazzaro](https://github.com/damnko)
+
 ## License
 MIT © [Jay Kan](https://github.com/JayKan)
 
