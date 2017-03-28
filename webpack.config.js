@@ -15,6 +15,7 @@ const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
 const ProgressPlugin = require('webpack/lib/ProgressPlugin');
 const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 //=========================================================
 //  ENVIRONMENT VARS
@@ -93,6 +94,7 @@ config.plugins = [
     /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
     path.resolve('src')
   ),
+  new BundleAnalyzerPlugin(),
 ];
 
 //=========================================================
