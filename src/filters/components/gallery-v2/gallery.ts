@@ -1,7 +1,10 @@
-import { Component, ViewEncapsulation, ChangeDetectionStrategy, Input, OnChanges, Output, EventEmitter } from '@angular/core';
+import { Component, ViewEncapsulation, ChangeDetectionStrategy, Input, OnChanges, AfterViewInit, Output, EventEmitter, ElementRef, ViewChild } from '@angular/core';
 import { FiltersState, GalleryModel, OverlayStyle, FilterStyle, presets } from 'src/filters';
 import { fromJS } from 'immutable';
+import * as Swiper from 'swiper';
+
 import './gallery.scss';
+import '../../../../node_modules/swiper/dist/css/swiper.css';
 
 @Component({
   selector: 'gallery',
@@ -9,52 +12,48 @@ import './gallery.scss';
   changeDetection: ChangeDetectionStrategy.OnPush,
   template:`
   <section>
-    <div class="gallery gallery-scroll"
-      [ngClass]="{'is-active': active }">
-      <div class="gallery__scroll-cont dragscroll">
-        <ul class="gallery-items" *ngIf="gallery.length">
-          <li class="gallery-item" *ngFor="let record of gallery; let idx = index;">
-            <div class="thumb"
-              [ngClass]="{'selected': idx === selected && !customFilters }"
-              (click)="select(record.figureStyle, record.overlayStyle, idx, record.key)">
-              <figure class="thumb__figure" [ngStyle]="record.figureStyle">
-                <div [ngStyle]="record.overlayStyle"></div>
-                <img class="thumb__img" [src]="record.image" >
-              </figure>
-              <p class="thumb__label">{{ record.labelName }}</p>
-            </div>
-          </li>
-        </ul>
+    <div class="swiper-container" #swiper>
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" *ngFor="let record of gallery; let idx = index;">
+          <div class="thumb"
+            [ngClass]="{'selected': idx === selected && !customFilters }"
+            (click)="select(record.figureStyle, record.overlayStyle, idx, record.key)">
+            <figure class="thumb__figure" [ngStyle]="record.figureStyle">
+              <div [ngStyle]="record.overlayStyle"></div>
+              <img class="thumb__img" [src]="record.image" >
+            </figure>
+            <p class="thumb__label">v2-{{ record.labelName }}</p>
+          </div>
+        </div>
       </div>
+      <div class="swiper-scrollbar" #scrollbar></div>
     </div>
   </section>
   `
 })
-export class GalleryComponent implements OnChanges {
+export class GalleryComponent implements OnChanges, AfterViewInit {
   @Input() image: string;
   @Input() active: boolean = true;
   @Input() customFilters: boolean;
   @Output() onSelect: EventEmitter<any> = new EventEmitter<any>(false);
 
+  @ViewChild('swiper') swiperGallery: ElementRef;
+  @ViewChild('scrollbar') scrollbar: ElementRef;
   gallery: GalleryModel[] = [];
-
   private selected: number;
-
-  settings: Object = {
-    dots: false,
-    infinite: false,
-    speed: 100,
-    slidesToShow: 6,
-    slidesToScroll: 4,
-    swipe: true,
-    swipeToSlide: true,
-    initialSlide: 0
-  };
 
   ngOnChanges(changes: any): void {
     if (changes.image) {
       this.gallery = this.getGalleryImages(changes.image.currentValue);
     }
+  }
+
+  ngAfterViewInit(): void {
+    var mySwiper = new Swiper (this.swiperGallery.nativeElement, {
+      spaceBetween: 10,
+      slidesPerView: 'auto',
+      scrollbar: this.scrollbar.nativeElement,
+    });
   }
 
   select(figure: FilterStyle, overlay: OverlayStyle, id: number, key: string): void {
