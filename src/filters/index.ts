@@ -16,7 +16,7 @@ import { FiltersEffects } from './services/filters-effects';
 import { PhotoComponent } from './components/photo';
 import { ImageLoaderComponent } from './components/image-loader';
 
-import { GalleryComponent } from './components/gallery';
+import { GalleryComponent } from './components/gallery-v2';
 import { SlickSliderComponent } from './components/slick-slider';
 
 import { MdSliderComponent } from './components/slider';

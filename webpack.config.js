@@ -36,6 +36,10 @@ const rules = {
     loader: 'raw-loader',
     exclude: path.resolve('src/index.html')
   },
+  css: {
+    test: /\.css$/,
+    use: [ 'style-loader', 'css-loader' ]
+  },
   scss: {
     test: /\.scss$/,
     loader: ExtractTextPlugin.extract('css-loader?-autoprefixer!postcss-loader!sass-loader')
@@ -64,6 +68,7 @@ config.resolve = {
 config.module = {
   rules: [
     rules.html,
+    rules.css,
     rules.scss,
     rules.typescript,
   ]
@@ -94,7 +99,13 @@ config.plugins = [
     /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
     path.resolve('src')
   ),
-  new BundleAnalyzerPlugin(),
+  new BundleAnalyzerPlugin({
+    // this config can be removed when HMR will be supported
+    // https://github.com/th0r/webpack-bundle-analyzer/issues/37
+    analyzerMode: 'disabled',
+    generateStatsFile: true,
+    statsFilename: 'stats.json'
+  }),
 ];
 
 //=========================================================
