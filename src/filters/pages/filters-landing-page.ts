@@ -31,7 +31,8 @@ import './filters-landing-page.scss';
           </p>
           <p class="gallery-trigger" (click)="isActive = !isActive">
             <i class="fa fa-sliders" aria-hidden="true"></i>
-            <span>Hide Presets</span>
+            <span *ngIf="!isActive">Hide Presets</span>
+            <span *ngIf="isActive">Show Presets</span>
           </p>
         </section>
         <photo
