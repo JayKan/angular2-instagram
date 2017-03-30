@@ -18,6 +18,15 @@
         "question",
         "review"
       ]
+    },
+    {
+      "login": "damnko",
+      "name": "Yari",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/680205?v=3",
+      "profile": "https://github.com/damnko",
+      "contributions": [
+        "code"
+      ]
     }
   ]
 }
