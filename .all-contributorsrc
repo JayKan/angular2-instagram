@@ -1,6 +1,6 @@
 {
   "projectName": "Angular2-Instagram",
-  "projectOwner": "Jay Kan",
+  "projectOwner": "JayKan",
   "files": [
     "README.md"
   ],
@@ -23,6 +23,17 @@
       "profile": "https://stefannieuwenhuis.github.io/",
       "contributions": [
         "code"
+      ]
+    },
+    {
+      "login": "JayKan",
+      "name": "Jay Kan",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/1400300?v=3",
+      "profile": "https://github.com/JayKan",
+      "contributions": [
+        "code",
+        "doc",
+        "review"
       ]
     }
   ]
