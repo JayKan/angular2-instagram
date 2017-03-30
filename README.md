@@ -28,6 +28,7 @@ Once you have installed all prerequisites,
 
 A million thanks to some awesome people :)
 * [Yari Lazzaro](https://github.com/damnko)
+* [Stefan Nieuwenhuis](https://github.com/StefanNieuwenhuis)
 
 ## License
 MIT © [Jay Kan](https://github.com/JayKan)
