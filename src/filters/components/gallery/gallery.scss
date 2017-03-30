@@ -6,7 +6,12 @@ gallery {
   .swiper-container {
     background-color: c('base', 'tab-bg-color');
     width: 100%;
-    height: 100%;
+    height: 0;
+    transition: all .35s cubic-bezier(.42, 0, .42, .86) 0s;
+
+    &.is-active {
+      height: 148px;
+    }
 
     .swiper-wrapper {
       display: block;
@@ -16,6 +21,7 @@ gallery {
       .swiper-slide {
         width: 100px;
         display: inline-block;
+        margin-left: 15px;
         &:first-child {
           margin-left: 0;
         }

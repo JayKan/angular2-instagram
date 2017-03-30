@@ -11,7 +11,8 @@ import '../../../../node_modules/swiper/dist/css/swiper.css';
   changeDetection: ChangeDetectionStrategy.OnPush,
   template:`
   <section>
-    <div class="swiper-container" #swiper>
+    <div class="swiper-container" #swiper
+      [ngClass]="{'is-active': active}">
       <div class="swiper-wrapper">
         <div class="swiper-slide" *ngFor="let record of gallery; let idx = index;">
           <div class="thumb"
@@ -49,7 +50,6 @@ export class GalleryComponent implements OnChanges, AfterViewInit {
 
   ngAfterViewInit(): void {
     const mySwiper = new Swiper(this.swiperGallery.nativeElement, {
-      spaceBetween: 15,
       slidesPerView: 'auto',
       scrollbar: this.scrollbar.nativeElement,
     });
