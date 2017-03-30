@@ -8,24 +8,6 @@
   "commit": true,
   "contributors": [
     {
-      "login": "damnko",
-      "name": "Yari",
-      "avatar_url": "https://avatars2.githubusercontent.com/u/680205?v=3",
-      "profile": "https://github.com/damnko",
-      "contributions": [
-        "code"
-      ]
-    },
-    {
-      "login": "StefanNieuwenhuis",
-      "name": "Stefan Nieuwenhuis",
-      "avatar_url": "https://avatars2.githubusercontent.com/u/12104589?v=3",
-      "profile": "https://stefannieuwenhuis.github.io/",
-      "contributions": [
-        "code"
-      ]
-    },
-    {
       "login": "JayKan",
       "name": "Jay Kan",
       "avatar_url": "https://avatars3.githubusercontent.com/u/1400300?v=3",
@@ -33,6 +15,7 @@
       "contributions": [
         "code",
         "doc",
+        "question",
         "review"
       ]
     }
