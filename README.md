@@ -25,11 +25,16 @@ Once you have installed all prerequisites,
 * `npm install` to install all dependencies
 * `npm start` to run our app locally in dev mode
 
-### Contributors
+## Contributors
 
 A million thanks to some awesome people :)
-* [Yari Lazzaro](https://github.com/damnko)
-* [Stefan Nieuwenhuis](https://github.com/StefanNieuwenhuis)
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+| [<img src="https://avatars2.githubusercontent.com/u/680205?v=3" width="100px;"/><br /><sub>Yari</sub>](https://github.com/damnko)<br />[💻](https://github.com/Jay Kan/Angular2-Instagram/commits?author=damnko) | [<img src="https://avatars2.githubusercontent.com/u/12104589?v=3" width="100px;"/><br /><sub>Stefan Nieuwenhuis</sub>](https://stefannieuwenhuis.github.io/)<br />[💻](https://github.com/Jay Kan/Angular2-Instagram/commits?author=StefanNieuwenhuis) |
+| :---: | :---: |
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Contributions of any kind welcome!
 
 ## License
 MIT © [Jay Kan](https://github.com/JayKan)
@@ -46,14 +51,3 @@ MIT © [Jay Kan](https://github.com/JayKan)
 [prs]: https://github.com/JayKan/angular2-instagram/pulls
 [license-badge]: https://img.shields.io/npm/l/express.svg?style=flat-square
 [license]: https://github.com/JayKan/angular2-instagram/blob/master/LICENSE
-
-## Contributors
-
-Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)):
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-| [<img src="https://avatars2.githubusercontent.com/u/680205?v=3" width="100px;"/><br /><sub>Yari</sub>](https://github.com/damnko)<br />[💻](https://github.com/Jay Kan/Angular2-Instagram/commits?author=damnko) | [<img src="https://avatars2.githubusercontent.com/u/12104589?v=3" width="100px;"/><br /><sub>Stefan Nieuwenhuis</sub>](https://stefannieuwenhuis.github.io/)<br />[💻](https://github.com/Jay Kan/Angular2-Instagram/commits?author=StefanNieuwenhuis) |
-| :---: | :---: |
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
-This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Contributions of any kind welcome!
