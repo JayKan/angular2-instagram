@@ -7,6 +7,8 @@
     "email": "leicasper@gmail.com"
   },
   "scripts": {
+    "add": "all-contributors add",
+    "generate": "all-contributors generate",
     "clean": "del-cli ./public",
     "build:ngc": "ngc",
     "build:dev": "cross-env NODE_ENV=development webpack-dev-server",
@@ -57,6 +59,7 @@
     "@types/node": "~7.0.5",
     "@types/slick-carousel": "^1.6.31",
     "@types/swiper": "^3.4.0",
+    "all-contributors-cli": "^4.0.1",
     "autoprefixer": "^6.5.1",
     "compression-webpack-plugin": "^0.3.2",
     "copy-webpack-plugin": "^4.0.0",
