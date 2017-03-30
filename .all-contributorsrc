@@ -1,0 +1,20 @@
+{
+  "projectName": "Angular2-Instagram",
+  "projectOwner": "Jay Kan",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "contributors": [
+    {
+      "login": "damnko",
+      "name": "Yari",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/680205?v=3",
+      "profile": "https://github.com/damnko",
+      "contributions": [
+        "code"
+      ]
+    }
+  ]
+}
