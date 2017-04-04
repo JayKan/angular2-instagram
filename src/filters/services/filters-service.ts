@@ -24,7 +24,8 @@ import {
   getOverlayStyleValue,
   getSelectedImage,
   getImages,
-  getError
+  getError,
+  getLoading
 } from '../reducers/selectors';
 import { Http } from '@angular/http';
 
@@ -41,6 +42,7 @@ export class FiltersService {
   static BLEND: string      = 'blend';
   static PRESET: string     = 'preset';
   static IMAGE: string      = 'image';
+  static LOADING: string    = 'loading';
 
   contrast$: Observable<number>;
   brightness$: Observable<number>;
@@ -56,6 +58,7 @@ export class FiltersService {
   selectedImage$: Observable<string>;
   images$: Observable<any>;
   error$: Observable<string>;
+  loading$: Observable<boolean>;
 
   private cache: Map<any, any> = new Map();
 
@@ -78,6 +81,7 @@ export class FiltersService {
     this.selectedImage$ = getSelectedImage(store$);
     this.images$ = getImages(store$);
     this.error$ = getError(store$);
+    this.loading$ = getLoading(store$);
   }
 
   change({ value, type }: { value: any, type: string }): void {
@@ -114,6 +118,9 @@ export class FiltersService {
         break;
       case FiltersService.IMAGE:
         this.changeSelectImage(value);
+        break;
+      case FiltersService.LOADING:
+        this.changeLoading(value);
         break;
     }
   }
@@ -193,6 +200,12 @@ export class FiltersService {
   resetToDefaults(): void {
     this.store$.dispatch(
       this.actions.resetToDefaults()
+    );
+  }
+
+  changeLoading(value: boolean): void {
+    this.store$.dispatch(
+      this.actions.changeLoading(value)
     );
   }
 

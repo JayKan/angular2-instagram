@@ -22,6 +22,8 @@ import { SlickSliderComponent } from './components/slick-slider';
 import { MdSliderComponent } from './components/slider';
 import { MdRadioGroup, MdRadioButton } from './components/radio';
 
+import { SpinnerLoaderComponent } from './components/spinner-loader';
+
 import { MdRippleDirective } from './directives/ripple';
 import { MdGestureConfig, UniqueSelectionDispatcher } from './core';
 
@@ -56,6 +58,7 @@ const routes: Routes = [
     MdSliderComponent,
     MdRadioGroup,
     MdRadioButton,
+    SpinnerLoaderComponent
   ],
   providers: [
     FiltersService,

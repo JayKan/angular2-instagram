@@ -18,6 +18,7 @@ export class FiltersActions {
   static FETCH_IMAGES_FULFILLED: string = 'FETCH_IMAGES_FULFILLED';
   static CHANGE_SELECTED_IMAGE: string  = 'CHANGE_SELECTED_IMAGE';
   static RESET_DEFAULTS: string         = 'RESET_DEFAULTS';
+  static LOADING: string                = 'LOADING';
   static API: string = 'https://api.unsplash.com/photos/?per_page=50&client_id=86f6167ee81be7b8aea6aa0d999c1bae79b3351b43e8df03c8baaa9c630f24ba';
 
   changeContrast(value: number, type: string = 'contrast'): Action {
@@ -108,6 +109,15 @@ export class FiltersActions {
         type
       }
     };
+  }
+
+  changeLoading(value: boolean, type: string = 'loading'): Action {
+    return {
+      type: FiltersActions.LOADING,
+      payload: {
+        value
+      }
+    }
   }
 
   changePreset({ figureStyle, overlayStyle, key }: { figureStyle: any, overlayStyle: any, key: string }): Action {

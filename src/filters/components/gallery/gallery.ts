@@ -1,9 +1,12 @@
+import { FiltersService } from './../../services/filters-service';
+import { Subject } from 'rxjs/Subject';
 import { Component, ViewEncapsulation, ChangeDetectionStrategy, Input, OnChanges, AfterViewInit, Output, EventEmitter, ElementRef, ViewChild } from '@angular/core';
 import { FiltersState, GalleryModel, OverlayStyle, FilterStyle, presets } from 'src/filters';
 import { fromJS } from 'immutable';
 import * as Swiper from 'swiper';
 import './gallery.scss';
 import '../../../../node_modules/swiper/dist/css/swiper.css';
+import 'rxjs/add/operator/debounceTime';
 
 @Component({
   selector: 'gallery',
@@ -15,12 +18,13 @@ import '../../../../node_modules/swiper/dist/css/swiper.css';
       [ngClass]="{'is-active': active}">
       <div class="swiper-wrapper">
         <div class="swiper-slide" *ngFor="let record of gallery; let idx = index;">
+          <spinner-loader [loading]="loading"></spinner-loader>
           <div class="thumb"
             [ngClass]="{'selected': idx === selected && !customFilters }"
             (click)="select(record.figureStyle, record.overlayStyle, idx, record.key)">
             <figure class="thumb__figure" [ngStyle]="record.figureStyle">
               <div [ngStyle]="record.overlayStyle"></div>
-              <img class="thumb__img" [src]="record.image" >
+              <img class="thumb__img" [src]="record.image" (load)="imageLoaded()">
             </figure>
             <p class="thumb__label">{{ record.labelName }}</p>
           </div>
@@ -35,12 +39,16 @@ export class GalleryComponent implements OnChanges, AfterViewInit {
   @Input() image: string;
   @Input() active: boolean = true;
   @Input() customFilters: boolean;
+  @Input() loading: boolean;
   @Output() onSelect: EventEmitter<any> = new EventEmitter<any>(false);
 
   @ViewChild('swiper') swiperGallery: ElementRef;
   @ViewChild('scrollbar') scrollbar: ElementRef;
   gallery: GalleryModel[] = [];
   private selected: number;
+  private imageLoaded$ = new Subject<boolean>();
+
+  constructor(public filters: FiltersService) {}
 
   ngOnChanges(changes: any): void {
     if (changes.image) {
@@ -53,6 +61,17 @@ export class GalleryComponent implements OnChanges, AfterViewInit {
       slidesPerView: 'auto',
       scrollbar: this.scrollbar.nativeElement,
     });
+    this.imageLoaded$.debounceTime(50)
+      .subscribe(() => {
+        this.filters.change({
+          value: false,
+          type: 'loading'
+        });
+      });
+  }
+
+  imageLoaded() {
+    this.imageLoaded$.next(true)
   }
 
   select(figure: FilterStyle, overlay: OverlayStyle, id: number, key: string): void {
