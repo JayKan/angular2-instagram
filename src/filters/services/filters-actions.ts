@@ -117,7 +117,7 @@ export class FiltersActions {
       payload: {
         value
       }
-    }
+    };
   }
 
   changePreset({ figureStyle, overlayStyle, key }: { figureStyle: any, overlayStyle: any, key: string }): Action {

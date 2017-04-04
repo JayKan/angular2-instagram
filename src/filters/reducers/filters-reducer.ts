@@ -3,7 +3,6 @@ import { Map, List } from 'immutable';
 import { FiltersActions } from '../services/filters-actions';
 import { FilterStyle, OverlayStyle, presets } from 'src/filters';
 
-
 export type FiltersState = Map<string, any>;
 const defaultImage: string = 'https://source.unsplash.com/W_9mOGUwR08/800x600';
 const DEFAULTS = Map({

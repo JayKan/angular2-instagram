@@ -1,7 +1,7 @@
-import { FiltersService } from './../../services/filters-service';
-import { Subject } from 'rxjs/Subject';
-import { Component, ViewEncapsulation, ChangeDetectionStrategy, Input, OnChanges, AfterViewInit, Output, EventEmitter, ElementRef, ViewChild } from '@angular/core';
+import { Component, ViewEncapsulation, ChangeDetectionStrategy, Input, OnChanges, AfterViewInit, Output, EventEmitter, ElementRef, ViewChild, OnDestroy } from '@angular/core';
 import { FiltersState, GalleryModel, OverlayStyle, FilterStyle, presets } from 'src/filters';
+import { Subject } from 'rxjs/Subject';
+import { FiltersService } from '../../services/filters-service';
 import { fromJS } from 'immutable';
 import * as Swiper from 'swiper';
 import './gallery.scss';
@@ -35,7 +35,7 @@ import 'rxjs/add/operator/debounceTime';
   </section>
   `
 })
-export class GalleryComponent implements OnChanges, AfterViewInit {
+export class GalleryComponent implements OnChanges, AfterViewInit, OnDestroy {
   @Input() image: string;
   @Input() active: boolean = true;
   @Input() customFilters: boolean;
@@ -48,7 +48,7 @@ export class GalleryComponent implements OnChanges, AfterViewInit {
   private selected: number;
   private imageLoaded$ = new Subject<boolean>();
 
-  constructor(public filters: FiltersService) {}
+  constructor(private filters: FiltersService) {}
 
   ngOnChanges(changes: any): void {
     if (changes.image) {
@@ -70,8 +70,12 @@ export class GalleryComponent implements OnChanges, AfterViewInit {
       });
   }
 
-  imageLoaded() {
-    this.imageLoaded$.next(true)
+  ngOnDestroy(): void {
+    this.imageLoaded$.next(false);
+  }
+
+  imageLoaded(): void {
+    this.imageLoaded$.next(true);
   }
 
   select(figure: FilterStyle, overlay: OverlayStyle, id: number, key: string): void {
