@@ -97,3 +97,9 @@ export function getError(state$: Observable<AppState>): Observable<string> {
     .map((filtersState: FiltersState) => filtersState.get('error'))
     .distinctUntilChanged();
 }
+
+export function getLoading(state$: Observable<AppState>): Observable<boolean> {
+  return state$.let(getFiltersState)
+    .map((filtersState: FiltersState) => filtersState.get('loading'))
+    .distinctUntilChanged();
+}

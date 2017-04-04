@@ -47,7 +47,8 @@ const initialState: FiltersState = Map({
   }),
   selectedImage: defaultImage,
   images: List(),
-  error: null
+  error: null,
+  loading: false
 });
 
 export function filtersReducer(state: FiltersState = initialState, { type, payload }: Action): FiltersState {
@@ -68,6 +69,13 @@ export function filtersReducer(state: FiltersState = initialState, { type, paylo
           .merge({ [`${type}`]: value })
           .merge(updateFilterStyle(filtersState))
           .merge(updateOverlayStyle(filtersState));
+      });
+
+    case FiltersActions.LOADING:
+      return state.withMutations(filtersState => {
+        const { value } = payload;
+        filtersState
+          .merge({ loading: value })
       });
 
     case FiltersActions.CHANGE_PRESET:

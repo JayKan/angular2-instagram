@@ -9,6 +9,7 @@ import './photo.scss';
   template:`
   <div class="photo">
     <figure [ngStyle]="filter">
+      <spinner-loader [loading]="loading"></spinner-loader>
       <div [ngStyle]="overlay"></div>
       <image-loader [image]="image"></image-loader>
     </figure>
@@ -19,4 +20,5 @@ export class PhotoComponent {
   @Input() overlay: OverlayStyle;
   @Input() filter: FilterStyle;
   @Input() image: string;
+  @Input() loading: boolean;
 }

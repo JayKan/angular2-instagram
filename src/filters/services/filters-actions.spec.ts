@@ -137,6 +137,19 @@ describe('filters', () => {
       });
     });
 
+    describe('changeLoading()', () => {
+      it('should create an action', () => {
+        const type = 'loading';
+        const value = true;
+        const action = actions.changeLoading(value);
+
+        expect(action).toEqual({
+          type: FiltersActions.LOADING,
+          payload: { type, value }
+        });
+      });
+    });
+
     describe('loadImages()', () => {
       it('should create an action', () => {
         const action = actions.loadImages();

@@ -14,15 +14,16 @@ import './filters-landing-page.scss';
   selector: 'filters-landing-page',
   encapsulation: ViewEncapsulation.None,
   template:`
-  <main class="main">      
-    <section class="gallery-section">         
-      <gallery 
+  <main class="main">
+    <section class="gallery-section">
+      <gallery
        [image]="filters.selectedImage$ | async"
        [active]="!isActive"
        [customFilters]="customFilters"
-       (onSelect)="select($event)">      
+       [loading]="filters.loading$ | async"
+       (onSelect)="select($event)">
       </gallery>
-         
+
       <main class="main-photo">
         <section class="modal-trigger-cont">
           <p class="modal-trigger" (click)="openModal(content)">
@@ -36,151 +37,152 @@ import './filters-landing-page.scss';
           </p>
         </section>
         <photo
+         [loading]="filters.loading$ | async"
          [overlay]="filters.overlayStyle$ | async"
          [filter]="filters.filterStyle$ | async"
-         [image]="filters.selectedImage$ | async">         
-        </photo>               
+         [image]="filters.selectedImage$ | async">
+        </photo>
         <div class="credits">
-          <p class="credits-cite"> 
-            <i class="fa fa-code" aria-hidden="true"></i> 
+          <p class="credits-cite">
+            <i class="fa fa-code" aria-hidden="true"></i>
             by <a href="https://github.com/jaykan" target="_blank">Jay Kan</a> with
             <i class="fa fa-heart" aria-hidden="true"></i>
           </p>
-        </div> 
-      </main>                  
+        </div>
+      </main>
     </section>
-        
-    <aside class="filters-section" nano>  
+
+    <aside class="filters-section" nano>
       <div nano-content>
         <section class="filters-header-container">
           <p class="header">Filters:</p>
           <p class="clear-all" (click)="filters.resetToDefaults()">Clear All</p>
-        </section>        
+        </section>
         <div class="filters">
           <section>
             <p class="slider-label">Contrast</p>
             <p class="slider-value">{{ filters.contrast$ | async }}%</p>
-          </section>       
+          </section>
           <md-slider
            thumb-label
            [min]="'0'"
            [max]="'200'"
            [filterType]="'contrast'"
-           [value]="filters.contrast$ | async"         
-           (valueChange)="change($event)">         
-          </md-slider>                  
-                    
+           [value]="filters.contrast$ | async"
+           (valueChange)="change($event)">
+          </md-slider>
+
           <section>
             <p class="slider-label">Brightness</p>
             <p class="slider-value">{{ filters.brightness$ | async }}%</p>
-          </section>       
+          </section>
           <md-slider
             thumb-label
             [min]="'0'"
             [max]="'200'"
             [filterType]="'brightness'"
             [value]="filters.brightness$ | async"
-            (valueChange)="change($event)">          
+            (valueChange)="change($event)">
           </md-slider>
-          
+
           <section>
             <p class="slider-label">Saturate</p>
             <p class="slider-value">{{ filters.saturate$ | async }}%</p>
-          </section>                                                     
+          </section>
           <md-slider
            thumb-label
            [min]="'0'"
            [max]="'200'"
            [filterType]="'saturate'"
            [value]="filters.saturate$ | async"
-           (valueChange)="change($event)">        
+           (valueChange)="change($event)">
           </md-slider>
-          
+
           <section>
             <p class="slider-label">Sepia</p>
             <p class="slider-value">{{ filters.sepia$ | async }}%</p>
-          </section>                
+          </section>
           <md-slider
             thumb-label
             [min]="'0'"
             [max]="'100'"
             [filterType]="'sepia'"
             [value]="filters.sepia$ | async"
-            (valueChange)="change($event)">        
+            (valueChange)="change($event)">
           </md-slider>
-          
+
           <section>
             <p class="slider-label">Grayscale</p>
             <p class="slider-value">{{ filters.grayscale$ | async }}%</p>
-          </section>           
+          </section>
           <md-slider
             thumb-label
             [min]="'0'"
             [max]="'100'"
             [filterType]="'grayScale'"
             [value]="filters.grayscale$ | async"
-            (valueChange)="change($event)">          
+            (valueChange)="change($event)">
           </md-slider>
-          
+
           <section>
             <p class="slider-label">Invert</p>
             <p class="slider-value">{{ filters.invert$ | async }}%</p>
-          </section>         
+          </section>
           <md-slider
             thumb-label
             [min]="'0'"
             [max]="'100'"
             [filterType]="'invert'"
             [value]="filters.invert$ | async"
-            (valueChange)="change($event)">          
+            (valueChange)="change($event)">
           </md-slider>
-          
+
           <section>
             <p class="slider-label">Hue Rotate</p>
             <p class="slider-value">{{ filters.hueRotate$ | async }}deg</p>
-          </section>  
+          </section>
           <md-slider
             thumb-label
             [min]="'0'"
             [max]="'360'"
             [filterType]="'hueRotate'"
             [value]="filters.hueRotate$ | async"
-            (valueChange)="change($event)">          
+            (valueChange)="change($event)">
           </md-slider>
-          
+
           <section>
             <p class="slider-label">Blur</p>
             <p class="slider-value">{{ filters.blur$ | async }}px</p>
-          </section>        
+          </section>
           <md-slider
             thumb-label
             [min]="'0'"
             [max]="'10'"
             [filterType]="'blur'"
             [value]="filters.blur$ | async"
-            (valueChange)="change($event)">          
+            (valueChange)="change($event)">
           </md-slider>
 
           <div>
             <section>
-              <p class="header overlay">Overlay:</p>           
-            </section>         
+              <p class="header overlay">Overlay:</p>
+            </section>
             <md-radio-group [name]="'overlay_options'" [value]="filters.blend$ | async">
-              <md-radio-button 
-                *ngFor="let option of options" 
-                [name]="'overlay_options'"               
+              <md-radio-button
+                *ngFor="let option of options"
+                [name]="'overlay_options'"
                 [value]="option.val"
                 (change)="change($event)">
                 {{ option.label }}
               </md-radio-button>
-            </md-radio-group>                              
-          </div>             
+            </md-radio-group>
+          </div>
         </div>
       </div>
     </aside>
   </main>
-   
-  <template ModalContainer></template>  
+
+  <template ModalContainer></template>
   <template #content let-c="close" let-d="dismiss">
     <div class="modal-header">
       <h4 class="modal-title">Select an image</h4>
@@ -188,17 +190,17 @@ import './filters-landing-page.scss';
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <div class="modal-body">     
-      <article 
+    <div class="modal-body">
+      <article
         class="image-thumb"
         *ngFor="let image of (filters.images$ | async)"
         (click)="selectImage(image.id, d)"
       >
-        <img class="modal-image" [src]="image.thumb">       
-      </article>     
+        <img class="modal-image" [src]="image.thumb">
+      </article>
       <section *ngIf="filters.error$ | async">{{ filters.error$ | async }}</section>
-    </div>    
-  </template>      
+    </div>
+  </template>
 `
 })
 export class FiltersLandingPageComponent {
@@ -231,6 +233,10 @@ export class FiltersLandingPageComponent {
   }
 
   selectImage(image: string, callback: Function): void {
+    this.filters.change({
+      value: true,
+      type: 'loading'
+    });
     const src: any = `https://source.unsplash.com/${image}/800x600`;
     this.change({ value: src, type: 'image' });
     callback('Exit from callback');
