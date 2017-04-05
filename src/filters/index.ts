@@ -8,25 +8,20 @@ import { SharedModule } from 'src/shared';
 
 import { ModalModule } from './components/modal';
 import { FiltersLandingPageComponent } from './pages/filters-landing-page';
+import { PhotoComponent } from './components/photo';
+import { ImageLoaderComponent } from './components/image-loader';
+import { GalleryComponent } from './components/gallery';
+import { SpinnerLoaderComponent } from './components/spinner-loader';
+import { MdSliderComponent } from './components/slider';
+import { MdRadioGroup, MdRadioButton } from './components/radio';
+import { MdRippleDirective } from './directives/ripple';
+import { NANO_DIRECTIVES } from './directives/nano';
 
 import { FiltersService } from './services/filters-service';
 import { FiltersActions } from './services/filters-actions';
 import { FiltersEffects } from './services/filters-effects';
-
-import { PhotoComponent } from './components/photo';
-import { ImageLoaderComponent } from './components/image-loader';
-
-import { GalleryComponent } from './components/gallery';
-import { SlickSliderComponent } from './components/slick-slider';
-
-import { MdSliderComponent } from './components/slider';
-import { MdRadioGroup, MdRadioButton } from './components/radio';
-
-import { SpinnerLoaderComponent } from './components/spinner-loader';
-import { MdRippleDirective } from './directives/ripple';
 import { MdGestureConfig, UniqueSelectionDispatcher } from './core';
 
-import { NANO_DIRECTIVES } from './directives/nano';
 export { filtersReducer, FiltersState } from './reducers/filters-reducer';
 export { FilterStyle, OverlayStyle, GalleryModel, HammerInstance } from './interfaces';
 export { presets, overlayOptions } from './constants';
@@ -49,15 +44,14 @@ const routes: Routes = [
   declarations: [
     MdRippleDirective,
     NANO_DIRECTIVES,
-    FiltersLandingPageComponent,
     PhotoComponent,
     ImageLoaderComponent,
     GalleryComponent,
-    SlickSliderComponent,
     MdSliderComponent,
     MdRadioGroup,
     MdRadioButton,
     SpinnerLoaderComponent,
+    FiltersLandingPageComponent,
   ],
   providers: [
     FiltersService,

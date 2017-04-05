@@ -22,7 +22,6 @@
       "jasmine",
       "node",
       "jquery",
-      "slick-carousel",
       "hammerjs"
     ]
   },
