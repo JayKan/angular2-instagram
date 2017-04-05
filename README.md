@@ -8,7 +8,7 @@
 
 ## Getting Started 
 ### Dependencies Prerequisites
-> Make sure you have Node **version >= 5.11** and NPM **>= 3**
+> Make sure you have Node **version >= 6.9** and NPM **>= 3**
  
 Once you have those, you should install these globals with `npm install --global`:
 
