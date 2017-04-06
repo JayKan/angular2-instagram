@@ -1,3 +1,5 @@
+'use strict';
+
 switch (process.env.NODE_ENV) {
   case 'prod':
   case 'production':
