@@ -1,4 +1,4 @@
-import { FiltersState } from 'src/filters';
+import { FiltersState } from '../filters';
 
 export interface AppState {
   filters: FiltersState;

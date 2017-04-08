@@ -7,8 +7,8 @@ import 'rxjs/add/observable/throw';
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
-import { AppState } from 'src/app';
-import { FilterStyle, OverlayStyle } from 'src/filters';
+import { AppState } from '../../app';
+import { FilterStyle, OverlayStyle } from '../';
 import { FiltersActions } from './filters-actions';
 import {
   getContrastFilterValue,

@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { EffectsModule } from '@ngrx/effects';
-import { SharedModule } from 'src/shared';
+import { SharedModule } from '../shared';
 
 import { ModalModule } from './components/modal';
 import { FiltersLandingPageComponent } from './pages/filters-landing-page';

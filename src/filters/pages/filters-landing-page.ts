@@ -4,7 +4,7 @@ import 'rxjs/add/operator/pairwise';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/observable/of';
 import { Component, ViewEncapsulation } from '@angular/core';
-import { overlayOptions } from 'src/filters';
+import { overlayOptions } from '../';
 import { FiltersService } from '../services/filters-service';
 import { Modal } from '../components/modal/services/modal';
 import { ModalDismissReasons } from '../components/modal';

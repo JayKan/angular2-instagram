@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation, ChangeDetectionStrategy, Input } from '@angular/core';
-import { FilterStyle, OverlayStyle } from 'src/filters';
+import { FilterStyle, OverlayStyle } from '../../';
 import './photo.scss';
 
 @Component({
