@@ -182,8 +182,8 @@ import './filters-landing-page.scss';
     </aside>
   </main>
 
-  <template ModalContainer></template>
-  <template #content let-c="close" let-d="dismiss">
+  <ng-template ModalContainer></ng-template>
+  <ng-template #content let-c="close" let-d="dismiss">
     <div class="modal-header">
       <h4 class="modal-title">Select an image</h4>
       <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
@@ -194,13 +194,12 @@ import './filters-landing-page.scss';
       <article
         class="image-thumb"
         *ngFor="let image of (filters.images$ | async)"
-        (click)="selectImage(image.id, d)"
-      >
+        (click)="selectImage(image.id, d)">
         <img class="modal-image" [src]="image.thumb">
       </article>
       <section *ngIf="filters.error$ | async">{{ filters.error$ | async }}</section>
     </div>
-  </template>
+  </ng-template>
 `
 })
 export class FiltersLandingPageComponent {
