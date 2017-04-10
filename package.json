@@ -1,7 +1,7 @@
 {
   "name": "angular2-instagram",
-  "version": "0.0.1",
-  "description": "Instagram like photo filter playground built with Angular2",
+  "version": "0.0.2",
+  "description": "Instagram like photo filter playground built with Angular2 (Web | Desktop)",
   "author": {
     "name": "Jay Kan",
     "email": "leicasper@gmail.com"
@@ -9,19 +9,19 @@
   "main": "electron.js",
   "scripts": {
     "add": "all-contributors add",
+    "generate": "all-contributors generate",
     "build": "run-s build:ngc build:prod",
-    "build:electron": "run-s build:ngc build:prod:electron",
     "build:ngc": "ngc",
     "build:dev": "cross-env NODE_ENV=development webpack-dev-server",
     "build:prod": "cross-env NODE_ENV=production webpack --display-chunks",
+    "build:electron": "run-s build:ngc build:prod:electron",
     "build:prod:electron": "cross-env NODE_ENV=production webpack --display-chunks --env.electron",
     "clean": "del-cli ./public",
     "development": "npm run build:dev",
-    "electron:copy": "cp ./package.json ./public && cp ./src/electron/electron.js ./public",
     "electron:dev": "npm run build:dev -- --env.electron",
-    "electron:package": "npm run build:electron && npm run electron:copy && electron-packager ./public --out=dist",
     "electron:prod": "npm run build:electron && npm run electron:copy && cross-env NODE_ENV=production electron ./public",
-    "generate": "all-contributors generate",
+    "electron:copy": "cp ./package.json ./public && cp ./src/electron/electron.js ./public",
+    "electron:package": "npm run build:electron && npm run electron:copy && electron-packager ./public --out=dist",
     "production": "npm run clean && npm run build && npm run server",
     "server": "cross-env NODE_ENV=development nodemon -w 'server/**/*.*' ./server/main.js",
     "start": "npm run development",
@@ -33,7 +33,9 @@
     "Angular",
     "Angular2",
     "Instagram",
-    "CSS Filters"
+    "CSS Filters",
+    "Electron",
+    "Desktop app"
   ],
   "engines": {
     "node": ">=6.9",
