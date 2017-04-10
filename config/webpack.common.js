@@ -10,7 +10,6 @@ const NamedModulesPlugin = require('webpack/lib/NamedModulesPlugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-
 const helpers = require('./helpers');
 
 module.exports = function(options) {
@@ -64,7 +63,8 @@ module.exports = function(options) {
         }
       }),
       new ContextReplacementPlugin(
-        /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
+        // /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
+        /angular(\\|\/)core(\\|\/)@angular/,
         path.resolve('src')
       ),
       new BundleAnalyzerPlugin({

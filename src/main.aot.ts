@@ -5,7 +5,7 @@ import { AppModuleNgFactory } from '../build/src/app/index.ngfactory';
 
 // enable prod for faster renders
 if (process.env.NODE_ENV === 'production') {
-  disableDebugTools();
+  // disableDebugTools();
   enableProdMode();
 }
 
