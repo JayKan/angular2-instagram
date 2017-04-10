@@ -16,7 +16,7 @@ import {
   ChangeDetectionStrategy
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
-import { coerceBooleanProperty } from '../../';
+import { coerceBooleanProperty } from 'src/filters';
 import { UniqueSelectionDispatcher } from '../../core/coordination';
 import './radio.scss';
 

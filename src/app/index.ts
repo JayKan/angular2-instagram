@@ -7,10 +7,9 @@ import { StoreModule } from '@ngrx/store';
 import { AppComponent } from './components/app';
 import { AppHeaderComponent } from './components/app-header';
 
-import { SharedModule } from '../shared';
-import { FiltersModule } from '../filters';
+import { SharedModule } from 'src/shared';
+import { FiltersModule, filtersReducer } from 'src/filters';
 
-import { filtersReducer } from '../filters';
 export { AppState } from './interfaces';
 
 @NgModule({

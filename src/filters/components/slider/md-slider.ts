@@ -12,7 +12,7 @@ import {
   ChangeDetectionStrategy
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
-import { applyCssTransform, coerceBooleanProperty } from '../../';
+import { applyCssTransform, coerceBooleanProperty } from 'src/filters';
 import { Input as HammerInput } from 'hammerjs';
 import 'hammerjs';
 import './md-slider.scss';
