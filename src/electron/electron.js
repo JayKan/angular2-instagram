@@ -1,6 +1,8 @@
+'use strict';
+
 const { app, BrowserWindow } = require('electron');
 
-// electron-connet is used only in dev mode, node_modules are not
+// electron-connect is used only in dev mode, node_modules are not
 // shipped in the electron package so importing electron-connect
 // will throw an error when using "npm run package"
 let client;
