@@ -14,6 +14,7 @@ const helpers = require('./helpers');
 
 module.exports = function(options) {
   const NODE_ENV = options.env;
+  const ELECTRON = options.electron;
   return {
     resolve: {
       extensions: ['.ts', '.js'],
@@ -28,7 +29,9 @@ module.exports = function(options) {
     },
     output: {
       path: path.resolve('./public'),
-      publicPath: '/'
+      // in Electron there's no server to render index.html so the path
+      // should be relative, otherwise the static resources won't be found
+      publicPath: ELECTRON ? '' : '/'
     },
     module: {
       rules: [
@@ -76,10 +79,13 @@ module.exports = function(options) {
         minChunks: Infinity
       }),
       new HtmlWebpackPlugin({
-        chunkSortMeta: 'dependency',
+        chunkSortMode: 'dependency',
         filename: 'index.html',
         hash: false,
         inject: 'body',
+        metadata: {
+          baseUrl: ELECTRON ? '' : '/'
+        },
         template: './src/index.html'
       })
     ]

@@ -8,9 +8,8 @@ import { AppComponent } from './components/app';
 import { AppHeaderComponent } from './components/app-header';
 
 import { SharedModule } from 'src/shared';
-import { FiltersModule } from 'src/filters';
+import { FiltersModule, filtersReducer } from 'src/filters';
 
-import { filtersReducer } from 'src/filters';
 export { AppState } from './interfaces';
 
 @NgModule({

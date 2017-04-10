@@ -206,7 +206,7 @@ export class MdRadioGroup implements AfterContentInit, ControlValueAccessor {
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
   template:`
-  <label [attr.for]="inputId" class="md-radio-label"> 
+  <label [attr.for]="inputId" class="md-radio-label">
     <div class="md-radio-container">
       <div class="md-radio-outer-circle"></div>
       <div class="md-radio-inner-circle"></div>
@@ -228,7 +228,7 @@ export class MdRadioGroup implements AfterContentInit, ControlValueAccessor {
             (focus)="_onInputFocus()"
             (blur)="_onInputBlur()"
             (click)="_onInputClick($event)">
- 
+
     <div class="md-radio-label-content" [class.md-radio-align-end]="align === 'end'">
       <ng-content></ng-content>
     </div>

@@ -1,7 +1,7 @@
 import { platformBrowser, disableDebugTools } from '@angular/platform-browser';
 import { enableProdMode } from '@angular/core';
 
-import { AppModuleNgFactory } from 'build/src/app/index.ngfactory';
+import { AppModuleNgFactory } from '../build/src/app/index.ngfactory';
 
 // enable prod for faster renders
 if (process.env.NODE_ENV === 'production') {
