@@ -1,7 +1,7 @@
 import { Action } from '@ngrx/store';
 import { Map, List } from 'immutable';
 import { FiltersActions } from '../services/filters-actions';
-import { FilterStyle, OverlayStyle, presets } from 'src/filters';
+import { FilterStyle, OverlayStyle, presets } from '../';
 
 export type FiltersState = Map<string, any>;
 const defaultImage: string = 'https://source.unsplash.com/W_9mOGUwR08/800x600';

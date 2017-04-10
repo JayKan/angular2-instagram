@@ -12,7 +12,7 @@ import {
   ChangeDetectionStrategy
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
-import { applyCssTransform, coerceBooleanProperty } from 'src/filters';
+import { applyCssTransform, coerceBooleanProperty } from '../../';
 import { Input as HammerInput } from 'hammerjs';
 import 'hammerjs';
 import './md-slider.scss';
@@ -59,7 +59,7 @@ export const MD_SLIDER_VALUE_ACCESSOR: any = {
         <div class="md-slider-tick-container"></div>
         <div class="md-slider-last-tick-container"></div>
       </div>
-      
+
       <div class="md-slider-thumb-container">
         <div class="md-slider-thumb-position">
           <div class="md-slider-thumb"></div>
@@ -67,7 +67,7 @@ export const MD_SLIDER_VALUE_ACCESSOR: any = {
             <span class="md-slider-thumb-label-text">{{ value }}</span>
           </div>
         </div>
-      </div>      
+      </div>
     </div>
   </div>
   `

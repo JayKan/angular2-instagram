@@ -1,10 +1,10 @@
 import '@ngrx/core/add/operator/select';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/let';
-import { AppState } from 'src/app';
+import { AppState } from '../../app';
 import { Observable } from 'rxjs/Observable';
 import { FiltersState } from './filters-reducer';
-import { FilterStyle, OverlayStyle } from 'src/filters';
+import { FilterStyle, OverlayStyle } from '../';
 
 export function getFiltersState(state$: Observable<AppState>): Observable<FiltersState> {
   return state$.select((state: AppState) => state.filters);

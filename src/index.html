@@ -11,7 +11,12 @@
   <meta name="robots" content="index,follow,noodp">
   <meta name="googlebot" content="index,follow">
   <title>Angular2 • Instagram</title>
-  <base href="/">
+  <base href="<%= htmlWebpackPlugin.options.metadata.baseUrl %>">
+  <% if (webpackConfig.htmlElements && webpackConfig.htmlElements.headTags) { %>
+  <!-- Configured Head Tags  -->
+  <%= webpackConfig.htmlElements.headTags %>
+  <% } %>
+
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Shadows+Into+Light">
   <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
