@@ -12,10 +12,11 @@ if (process.env.NODE_ENV === 'development') {
 
 let win = null;
 const DEVELOPMENT = process.env.NODE_ENV === 'development';
+const PRODUCTION = process.env.NODE_ENV === 'production';
 
 const loadUrl = () => {
   win.loadURL(`file://${__dirname}/index.html`);
-}
+};
 
 app.on('ready', () => {
   // Initialize the window
@@ -38,14 +39,16 @@ app.on('ready', () => {
     loadUrl();
   }
 
+  if (PRODUCTION) {
+    // replace standard reload that would show a blank screen with the win.loadUrl method
+    globalShortcut.register('CommandOrControl+R', loadUrl);
+    globalShortcut.register('Shift+CommandOrControl+R', loadUrl);
+  }
+
   // Remove window once app is closed
   win.on('closed', () => {
     win = null;
   });
-
-  // replace standard reload that would show a blank screen with the win.loadUrl method
-  globalShortcut.register('CommandOrControl+R', loadUrl);
-  globalShortcut.register('Shift+CommandOrControl+R', loadUrl);
 });
 
 app.on('will-quit', () => {
