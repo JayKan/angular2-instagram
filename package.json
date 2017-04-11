@@ -21,7 +21,7 @@
     "electron:dev": "npm run build:dev -- --env.electron",
     "electron:prod": "npm run build:electron && npm run electron:copy && cross-env NODE_ENV=production electron ./public",
     "electron:copy": "cp ./package.json ./public && cp ./src/electron/electron.js ./public",
-    "electron:package": "npm run build:electron && npm run electron:copy && electron-packager ./public --out=dist",
+    "electron:package": "npm run build:electron && npm run electron:copy && electron-packager ./public --out=dist --overwrite",
     "production": "npm run clean && npm run build && npm run server",
     "server": "cross-env NODE_ENV=development nodemon -w 'server/**/*.*' ./server/main.js",
     "start": "npm run development",
