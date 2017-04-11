@@ -26,12 +26,9 @@ Once you have installed all prerequisites,
 
 ### Running and building with Electron
 
-* `npm run electron:dev`  
-   will start `webpack-dev-server` along with `electron` with hot reloading and devtools activated
-* `npm run electron:prod`  
-   will first build the app following the standard production webpack pipeline, then it will copy `/package.json` and `/src/app/electron/electron.js` to the output `/public` directory and finally run `electron`. Webpack is not running in `--watch` mode so changes won't be rebuilt
-* `npm run electron:package`  
-   will package the `electron` app in the `/dist` folder using `electron-packager`. By default it will build the app for the current OS and architecture. For example to target OS X 64bit explicitly: `npm run package -- --platform=mas --arch=x64`. For a [detailed list of all the available parameters click here](https://github.com/electron-userland/electron-packager/blob/master/usage.txt)
+* `npm run electron:dev` will start `webpack-dev-server` along with `electron` with hot reloading and devtools activated
+* `npm run electron:prod` will first build the app following the standard production webpack pipeline, then it will copy `/package.json` and `/src/app/electron/electron.js` to the output `/public` directory and finally run `electron`. Webpack is not running in `--watch` mode so changes won't be rebuilt
+* `npm run electron:package` will package the `electron` app in the `/dist` folder using `electron-packager`. By default it will build the app for the current OS and architecture. For example to target OS X 64bit explicitly: `npm run package -- --platform=mas --arch=x64`. For a [detailed list of all the available parameters click here](https://github.com/electron-userland/electron-packager/blob/master/usage.txt)
 
 ## Contributors
 Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)):
