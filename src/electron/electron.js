@@ -1,6 +1,6 @@
 'use strict';
 
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, globalShortcut } = require('electron');
 
 // electron-connect is used only in dev mode, node_modules are not
 // shipped in the electron package so importing electron-connect
@@ -13,9 +13,18 @@ if (process.env.NODE_ENV === 'development') {
 let win = null;
 const DEVELOPMENT = process.env.NODE_ENV === 'development';
 
-app.on('ready', function () {
+const loadUrl = () => {
+  win.loadURL(`file://${__dirname}/index.html`);
+}
+
+app.on('ready', () => {
   // Initialize the window
-  win = new BrowserWindow({ width: 1200, height: 900, autoHideMenuBar: true, frame: true });
+  win = new BrowserWindow({
+    width: 1200,
+    height: 900,
+    autoHideMenuBar: true,
+    frame: true,
+  });
 
   if (DEVELOPMENT) {
     // Specify entry point
@@ -26,13 +35,21 @@ app.on('ready', function () {
     // see /config/webpack.dev.js for further details
     client.create(win);
   } else {
-    win.loadURL(`file://${__dirname}/index.html`)
+    loadUrl();
   }
 
   // Remove window once app is closed
-  win.on('closed', function () {
+  win.on('closed', () => {
     win = null;
   });
+
+  // replace standard reload that would show a blank screen with the win.loadUrl method
+  globalShortcut.register('CommandOrControl+R', loadUrl);
+  globalShortcut.register('Shift+CommandOrControl+R', loadUrl);
+});
+
+app.on('will-quit', () => {
+  globalShortcut.unregisterAll();
 });
 
 app.on('activate', () => {
@@ -41,7 +58,7 @@ app.on('activate', () => {
   }
 });
 
-app.on('window-all-closed', function () {
+app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit();
   }
