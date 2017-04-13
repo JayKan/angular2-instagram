@@ -2,5 +2,11 @@
   "name": "angular2-instagram",
   "version": "0.0.0",
   "license": "MIT",
-  "main": "electron.js"
+  "main": "electron.js",
+  "description": "Instagram like photo filter playground built with Angular2 (Web | Desktop)",
+  "author": {
+    "name": "Jay Kan",
+    "email": "leicasper@gmail.com"
+  }
+
 }

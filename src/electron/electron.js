@@ -1,6 +1,7 @@
 'use strict';
 
 const { app, BrowserWindow, globalShortcut } = require('electron');
+const fs = require('fs');
 
 // electron-connect is used only in dev mode, node_modules are not
 // shipped in the electron package so importing electron-connect
@@ -15,7 +16,11 @@ const DEVELOPMENT = process.env.NODE_ENV === 'development';
 const PRODUCTION = process.env.NODE_ENV === 'production';
 
 const loadUrl = () => {
-  win.loadURL(`file://${__dirname}/index.html`);
+  // since electron-builder and electron-packager packs the /public folder in different ways
+  // we first check if the folder exists and point to the index.html file accordingly
+  const publicFolder = fs.existsSync(`${__dirname}/../../public`) ? 'public/' : '';
+  const target = `file://${__dirname}/../../${publicFolder}index.html`;
+  win.loadURL(target);
 };
 
 app.on('ready', () => {
@@ -28,9 +33,9 @@ app.on('ready', () => {
   });
 
   if (DEVELOPMENT) {
-    // Specify entry point
+    // During development there's a webserver running (webpack-devserver)
     win.loadURL('http://localhost:3000');
-    // devtools
+    // enable devtools
     win.webContents.openDevTools();
     // in dev mode the electron window is created with electron-connect
     // see /config/webpack.dev.js for further details
