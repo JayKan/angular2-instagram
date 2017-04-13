@@ -6,7 +6,7 @@ public/
 build/
 tmp/
 dist/
-
+!src/electron/build/
 
 #---------------------------------
 # Extensions
