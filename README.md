@@ -28,7 +28,7 @@ Once you have installed all prerequisites,
 [See angular2-instagram Electron specific documentation](https://github.com/JayKan/angular2-instagram/blob/master/ELECTRON.md)
 
 To download the standalone apps use the following links:
-* [macOS 64bit](/JayKan/angular2-instagram/releases/download/v0.0.3/angular2-instagram-0.0.3-mac.zip)
+* [macOS 64bit](https://github.com/JayKan/angular2-instagram/releases/download/v0.0.3/angular2-instagram-0.0.3-mac.zip)
 * ...
 
 ## Contributors
