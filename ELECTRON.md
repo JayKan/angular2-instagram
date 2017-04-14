@@ -7,7 +7,7 @@
 We're using both for educational purposes, a single one of those would suffice.
 
 ## Configure Electron
-To configure `electron` we need to create an entry file that will be run when calling the `electron` command. You can [find it here]() on `/src/app/electron/electron.js`.
+To configure `electron` we need to create an entry file that will be run when calling the `electron` command. You can [find it here](https://github.com/JayKan/angular2-instagram/blob/master/src/electron/electron.js) on `/src/app/electron/electron.js`.
 
 ## Running Electron on development and production mode
 * `npm run electron:dev` will start `webpack-dev-server` along with `electron` with hot reloading and devtools activated
@@ -17,8 +17,8 @@ To configure `electron` we need to create an entry file that will be run when ca
 This project uses both `electron-packager` and `electron-builder` to create the standalone app. Consider that you might need additional tools in order to package the app for multiple platforms using a single OS (eg. to package for Windows using Linux you will need Wine).
 
 ### Building and packaging with `electron-builder`
-By running `npm run electron-builder` the app will be built in `production` mode with `webapack` and the resulting files under the `/public` folder will be packaged to create the standalone `electron` app. If no other parameter is set, the app will be packaged for the current OS and architecture (eg. macOS 64bit) and will be found under the `/dist` folder.
-If you want, for example, pack the app for Windows 32bit you could do `npm run electron-builder -- -w --ia32`. If you want to build for all 64bit platforms you should run `npm run electron-builder -- -lwm --x64`.
+By running `npm run electron:builder` the app will be built in `production` mode with `webapack` and the resulting files under the `/public` folder will be packaged to create the standalone `electron` app. If no other parameter is set, the app will be packaged for the current OS and architecture (eg. macOS 64bit) and will be found under the `/dist` folder.
+If you want, for example, pack the app for Windows 32bit you could do `npm run electron:builder -- -w --ia32`. If you want to build for all 64bit platforms you should run `npm run electron:builder -- -lwm --x64`.
 
 The configuration that `electron-builder` uses to create the package is in the `build` section of `package.json`.
 Following are some useful information to keep in mind:
