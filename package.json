@@ -23,6 +23,9 @@
     ],
     "linux": {
       "target": "deb"
+    },
+    "win": {
+      "target": ["nsis", "portable"]
     }
   },
   "scripts": {
@@ -41,7 +44,7 @@
     "electron:copy": "mkdir -p ./public/src/electron && cp ./package.json ./public && cp ./src/electron/electron.js ./public/src/electron",
     "electron:packager": "npm run build:electron && npm run electron:copy && electron-packager ./public --out=dist --overwrite",
     "electron:builder": "npm run build:electron && build",
-    "electron:publish": "del-cli ./dist && node_modules/.bin/build -p always",
+    "electron:publish": "del-cli ./dist && build -p always",
     "production": "npm run clean && npm run build && npm run server",
     "server": "cross-env NODE_ENV=development nodemon -w 'server/**/*.*' ./server/main.js",
     "start": "npm run development",

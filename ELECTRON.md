@@ -50,11 +50,8 @@ This is the step by step process we follow:
 1. first [created a Github token with repo access](https://github.com/settings/tokens/new)
 2. locally set the env variable with eg. `export GH_TOKEN="<TOKEN_HERE>"`
 3. update the `version` in `package.json`, this will also be the name (prepended with a `v` eg. `0.0.2` will become `v0.0.2`) of the `release` that will be created in Github
-4. run `npm run electron:publish`
-5. go to the Github release section of the repository, edit the description and title of the release and publish it, since it was initially created by `electron-builder` as a `draft`
+4. run `npm run build:electron` if the `electron` `production` version has not been built yet
+5. run `npm run electron:publish` to push the package to Github
+6. go to the Github release section of the repository, edit the description and title of the release and publish it, since it was initially created by `electron-builder` as a `draft`
 
 For more info on programmatically publishing the executable on other sources you can have a look at the [official documentation on electron-builder](https://github.com/electron-userland/electron-builder/wiki/Publishing-Artifacts).
-
-----------
-
-*The packaging process has been tested for now only on Linux Mint 64bit.*
