@@ -29,7 +29,9 @@ Once you have installed all prerequisites,
 
 To download the standalone apps use the following links:
 * [macOS 64bit](https://github.com/JayKan/angular2-instagram/releases/download/v0.0.3/angular2-instagram-0.0.3-mac.zip)
-* ...
+* [Linux 64bit](https://github.com/JayKan/angular2-instagram/releases/download/v0.0.3/angular2-instagram_0.0.3_amd64.deb)
+* [Windows 64bit portable](https://github.com/JayKan/angular2-instagram/releases/download/v0.0.3/angular2-instagram.0.0.3.exe)
+* [Windows 64 bit installer](https://github.com/JayKan/angular2-instagram/releases/download/v0.0.3/angular2-instagram.Setup.0.0.3.exe)
 
 ## Contributors
 Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)):
