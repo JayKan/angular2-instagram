@@ -16,7 +16,9 @@ describe('filters', () => {
 
         expect(action).toEqual({
           type: FiltersActions.CHANGE_CONTRAST,
-          payload: { value, type }
+          payload: {
+            value, type
+          }
         });
       });
     });
