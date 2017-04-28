@@ -1,22 +1,4 @@
-export interface FilterStyle {
-  WebkitFilter: string;
-  filter: string;
-  position: string;
-}
-
-export interface OverlayStyle {
-  content: string;
-  display: string;
-  height: string;
-  width: string;
-  top: string;
-  left: string;
-  pointerEvents: string;
-  position: string;
-  mixBlendMode?: string;
-  opacity: number;
-  background: string;
-}
+import { FilterStyle, OverlayStyle } from 'angular2-instagram-core';
 
 export interface GalleryModel {
   key: string;

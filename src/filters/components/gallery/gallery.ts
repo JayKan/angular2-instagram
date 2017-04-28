@@ -1,7 +1,7 @@
+import { GalleryModel } from './../../interfaces';
 import { Component, ViewEncapsulation, ChangeDetectionStrategy, Input, OnChanges, AfterViewInit, Output, EventEmitter, ElementRef, ViewChild, OnDestroy } from '@angular/core';
-import { FiltersState, GalleryModel, OverlayStyle, FilterStyle, presets } from 'src/filters';
+import { FiltersState, OverlayStyle, FilterStyle, presets, FiltersService } from 'angular2-instagram-core';
 import { Subject } from 'rxjs/Subject';
-import { FiltersService } from '../../services/filters-service';
 import { fromJS } from 'immutable';
 import * as Swiper from 'swiper';
 import './gallery.scss';

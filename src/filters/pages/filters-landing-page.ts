@@ -4,8 +4,7 @@ import 'rxjs/add/operator/pairwise';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/observable/of';
 import { Component, ViewEncapsulation } from '@angular/core';
-import { overlayOptions } from 'src/filters';
-import { FiltersService } from '../services/filters-service';
+import { overlayOptions, FiltersService } from 'angular2-instagram-core';
 import { Modal } from '../components/modal/services/modal';
 import { ModalDismissReasons } from '../components/modal';
 import './filters-landing-page.scss';
@@ -191,6 +190,7 @@ import './filters-landing-page.scss';
       </button>
     </div>
     <div class="modal-body">
+      {{ filters.images$ | async | json}}
       <article
         class="image-thumb"
         *ngFor="let image of (filters.images$ | async)"
@@ -212,6 +212,9 @@ export class FiltersLandingPageComponent {
     private modalService: Modal
   ) {
     this.filters.loadAllImages();
+    this.filters.images$.subscribe(res => {
+      console.log('images are', res);
+    })
   }
 
   select({ figureStyle, overlayStyle, key }: { figureStyle: any, overlayStyle: any, key: string }): void {
