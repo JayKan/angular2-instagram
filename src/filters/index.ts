@@ -3,7 +3,6 @@ import { HttpModule } from '@angular/http';
 import { Routes, RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
-import { EffectsModule } from '@ngrx/effects';
 import { SharedModule } from 'src/shared';
 import { Angular2InstagramCoreModule } from 'angular2-instagram-core';
 

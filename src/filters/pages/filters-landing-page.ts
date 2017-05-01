@@ -3,7 +3,7 @@ import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/pairwise';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/observable/of';
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 import { overlayOptions, FiltersService } from 'angular2-instagram-core';
 import { Modal } from '../components/modal/services/modal';
 import { ModalDismissReasons } from '../components/modal';
@@ -12,6 +12,7 @@ import './filters-landing-page.scss';
 @Component({
   selector: 'filters-landing-page',
   encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template:`
   <main class="main">
     <section class="gallery-section">
