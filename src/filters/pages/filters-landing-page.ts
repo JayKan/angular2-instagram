@@ -190,7 +190,6 @@ import './filters-landing-page.scss';
       </button>
     </div>
     <div class="modal-body">
-      {{ filters.images$ | async | json}}
       <article
         class="image-thumb"
         *ngFor="let image of (filters.images$ | async)"
@@ -212,9 +211,6 @@ export class FiltersLandingPageComponent {
     private modalService: Modal
   ) {
     this.filters.loadAllImages();
-    this.filters.images$.subscribe(res => {
-      console.log('images are', res);
-    })
   }
 
   select({ figureStyle, overlayStyle, key }: { figureStyle: any, overlayStyle: any, key: string }): void {
