@@ -26,7 +26,6 @@ export { AppState } from './interfaces';
     StoreModule.provideStore({
       filters: filtersReducer,
     }),
-
     SharedModule,
     FiltersModule,
   ],

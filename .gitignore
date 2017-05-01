@@ -24,7 +24,7 @@ dist/
 .idea/
 .project
 *.iml
-
+.vscode/
 
 #---------------------------------
 # OS generated

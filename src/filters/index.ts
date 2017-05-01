@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { EffectsModule } from '@ngrx/effects';
 import { SharedModule } from 'src/shared';
+import { Angular2InstagramCoreModule } from 'angular2-instagram-core';
 
 import { ModalModule } from './components/modal';
 import { FiltersLandingPageComponent } from './pages/filters-landing-page';
@@ -17,29 +18,25 @@ import { MdRadioGroup, MdRadioButton } from './components/radio';
 import { MdRippleDirective } from './directives/ripple';
 import { NANO_DIRECTIVES } from './directives/nano';
 
-import { FiltersService } from './services/filters-service';
-import { FiltersActions } from './services/filters-actions';
-import { FiltersEffects } from './services/filters-effects';
 import { MdGestureConfig, UniqueSelectionDispatcher } from './core';
 
-export { filtersReducer, FiltersState } from './reducers/filters-reducer';
-export { FilterStyle, OverlayStyle, GalleryModel, HammerInstance } from './interfaces';
-export { presets, overlayOptions } from './constants';
+export { filtersReducer, FiltersState, FilterStyle, OverlayStyle, overlayOptions, presets } from 'angular2-instagram-core';
+export { GalleryModel, HammerInstance } from './interfaces';
 export { MdGestureConfig, coerceBooleanProperty, applyCssTransform } from './core';
 
 const routes: Routes = [
-  { path: '', component: FiltersLandingPageComponent                },
-  { path: '**', component: FiltersLandingPageComponent              }
+  { path: '', component: FiltersLandingPageComponent },
+  { path: '**', component: FiltersLandingPageComponent }
 ];
 
 @NgModule({
   imports: [
     ReactiveFormsModule,
     RouterModule.forChild(routes),
-    EffectsModule.run(FiltersEffects),
     HttpModule,
     ModalModule,
     SharedModule,
+    Angular2InstagramCoreModule.forChild()
   ],
   declarations: [
     MdRippleDirective,
@@ -54,8 +51,6 @@ const routes: Routes = [
     FiltersLandingPageComponent,
   ],
   providers: [
-    FiltersService,
-    FiltersActions,
     UniqueSelectionDispatcher,
     { provide: HAMMER_GESTURE_CONFIG, useClass: MdGestureConfig },
   ]

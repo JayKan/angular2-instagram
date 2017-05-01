@@ -25,7 +25,10 @@
       "target": "deb"
     },
     "win": {
-      "target": ["nsis", "portable"]
+      "target": [
+        "nsis",
+        "portable"
+      ]
     }
   },
   "scripts": {
@@ -93,6 +96,7 @@
     "@types/node": "~7.0.5",
     "@types/swiper": "^3.4.0",
     "all-contributors-cli": "^4.0.1",
+    "angular2-instagram-core": "0.0.4-1",
     "autoprefixer": "^6.5.1",
     "compression-webpack-plugin": "^0.3.2",
     "copy-webpack-plugin": "^4.0.0",
