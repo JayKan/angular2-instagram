@@ -7,6 +7,7 @@ build/
 tmp/
 dist/
 !src/electron/build/
+package-lock.json
 
 #---------------------------------
 # Extensions
